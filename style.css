@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.manual-input,
+.controls {
+    margin: 20px 0;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#tree-container {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 100px;
+}
+
+.node {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 2px solid #007BFF;
+    border-radius: 50%;
+    position: relative;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.node.visited {
+    background-color: #28a745;
+    color: white;
+}
+
+.arrow {
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    z-index: 0;
+}
+
+#output {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: #eee;
+}
+
+.dark-mode .node {
+    background-color: #444;
+    border-color: #888;
+    color: #eee;
+}
+
+.dark-mode button {
+    background-color: #444;
+    color: #eee;
+    border: 1px solid #777;
+}
+
+.dark-mode button:hover {
+    background-color: #555;
+}
+
+.dark-mode input,
+.dark-mode select {
+    background-color: #333;
+    color: white;
+    border: 1px solid #666;
+}
+.node {
+    cursor: grab;
+    user-select: none;
+    z-index: 2;
+}
+
+.node.dragging {
+    opacity: 0.6;
+    cursor: grabbing;
+}
+/* #output {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    border: 2px dashed #007BFF;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #e6f0ff, #ffffff);
+    color: #1a1a1a;
+    animation: fadeIn 0.6s ease-in-out;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/* .traversal-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #007BFF;
+}
+
+.traversal-path {
+    font-size: 20px;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+} */
+.output-display {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #2e8b57;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+

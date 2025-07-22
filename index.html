@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Tree Traversal Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Binary Tree Traversal Visualizer</h1>
+
+        <!-- Manual Input Section -->
+        <div class="manual-input">
+            <input type="text" id="nodeValue" placeholder="Enter Node Value">
+            <select id="nodePositionSelect">
+                <option value="root">Set as Root</option>
+            </select>
+            <button onclick="addNodeManually()">Add Node</button>
+        </div>
+
+        <!-- Traversal and Control Buttons -->
+        <div class="controls">
+            <button onclick="generateRandomTree()">Generate Random Tree</button>
+            <button onclick="resetTree()">Reset Tree</button>
+            <button onclick="startTraversal('inorder')" title="Inorder: Left → Root → Right">Inorder</button>
+            <button onclick="startTraversal('preorder')" title="Preorder: Root → Left → Right">Preorder</button>
+            <button onclick="startTraversal('postorder')" title="Postorder: Left → Right → Root">Postorder</button>
+            <button onclick="startTraversal('levelorder')" title="Level Order: Level-by-Level">Level Order</button>
+            <button onclick="startTraversal('morris')" title="Morris: Inorder without stack or recursion">Morris</button>
+            <button onclick="toggleTheme()">Toggle Theme</button>
+        </div>
+
+        <!-- Tree Display Section -->
+        <div id="tree-container"></div>
+        <div id="output" class="output-section"></div>
+
+
+        <!-- ✅ Add Output Display Here -->
+        <div id="output" class="output-display"></div>
+
+        <!-- Optional: Call Stack Display
+        <div id="call-stack"></div> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
