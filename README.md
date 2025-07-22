@@ -17,15 +17,3 @@ An **easy-to-use interactive tool** to understand and visualize different types 
 - 📤 Live traversal output shown **below the tree**
 - ♻️ Reset and regenerate tree with one click
 
-## 🖼️ Preview
-
-![screenshot](screenshot.png) <!-- Replace with your own screenshot -->
-
-## 📂 File Structure
-
-BinaryTreeVisualizer/
-│
-├── index.html          # Main HTML file (user interface)
-├── style.css           # Styling for the UI and tree layout
-├── script.js           # JavaScript logic for tree creation, traversal, and animations
-├── README.md           # Project description and usage instructions
