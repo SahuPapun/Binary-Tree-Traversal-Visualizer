@@ -280,9 +280,14 @@ async function startTraversal(type) {
 }
 
 
-function toggleTheme() {
-    document.body.classList.toggle("dark-mode");
+
+function toggleDarkMode() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    const label = document.getElementById('theme-label');
+    label.innerText = isDark ? "Dark Theme" : "Light Theme";
 }
+
+
 
 function makeDraggable(nodeDiv, nodeVal) {
     let isDragging = false;

@@ -9,6 +9,18 @@
 <body>
     <div class="container">
         <h1>Binary Tree Traversal Visualizer</h1>
+            <div class="theme-toggle">
+            <label class="switch">
+                <input type="checkbox" id="themeToggle" onchange="toggleDarkMode()">
+                <span class="slider round">
+                <span class="icon">🌞</span>
+                <span class="icon">🌙</span>
+                </span>
+            </label>
+            <div id="theme-label" class="theme-label">Light Theme</div>
+            </div>
+
+
 
         <!-- Manual Input Section -->
         <div class="manual-input">
@@ -28,16 +40,17 @@
             <button onclick="startTraversal('postorder')" title="Postorder: Left → Right → Root">Postorder</button>
             <button onclick="startTraversal('levelorder')" title="Level Order: Level-by-Level">Level Order</button>
             <button onclick="startTraversal('morris')" title="Morris: Inorder without stack or recursion">Morris</button>
-            <button onclick="toggleTheme()">Toggle Theme</button>
+            <!-- <button onclick="toggleTheme()">Toggle Theme</button> -->
         </div>
 
         <!-- Tree Display Section -->
+         <div id="output" class="output-section"></div>
         <div id="tree-container"></div>
-        <div id="output" class="output-section"></div>
+        
 
 
         <!-- ✅ Add Output Display Here -->
-        <div id="output" class="output-display"></div>
+        <!-- <div id="output" class="output-display"></div> -->
 
         <!-- Optional: Call Stack Display
         <div id="call-stack"></div> -->
