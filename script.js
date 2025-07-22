@@ -110,25 +110,42 @@ function renderTree(node) {
 }
 
 function drawLine(fromEl, toEl) {
-    const x1 = fromEl.offsetLeft + fromEl.offsetWidth / 2;
-    const y1 = fromEl.offsetTop + fromEl.offsetHeight / 2;
-    const x2 = toEl.offsetLeft + toEl.offsetWidth / 2;
-    const y2 = toEl.offsetTop + toEl.offsetHeight / 2;
+    if (!fromEl || !toEl) return;
 
-    const deltaX = x2 - x1;
-    const deltaY = y2 - y1;
-    const length = Math.sqrt(deltaX ** 2 + deltaY ** 2);
-    const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
+    const radius = fromEl.offsetWidth / 2; // dynamically get radius
+
+    const x1_center = fromEl.offsetLeft + radius;
+    const y1_center = fromEl.offsetTop + radius;
+    const x2_center = toEl.offsetLeft + radius;
+    const y2_center = toEl.offsetTop + radius;
+
+    const dx = x2_center - x1_center;
+    const dy = y2_center - y1_center;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist === 0) return;
+
+    // Calculate start and end points on circumference
+    const startX = x1_center + (dx * radius) / dist;
+    const startY = y1_center + (dy * radius) / dist;
+    const endX = x2_center - (dx * radius) / dist;
+    const endY = y2_center - (dy * radius) / dist;
+
+    const length = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
+    const angle = Math.atan2(endY - startY, endX - startX) * (180 / Math.PI);
 
     const line = document.createElement("div");
     line.className = "arrow";
     line.style.width = `${length}px`;
+    line.style.left = `${startX}px`;
+    line.style.top = `${startY}px`;
     line.style.transform = `rotate(${angle}deg)`;
-    line.style.transformOrigin = '0 0';
-    line.style.left = `${x1}px`;
-    line.style.top = `${y1}px`;
+    line.style.transformOrigin = "0 0";
+
     treeContainer.appendChild(line);
 }
+
+
 
 function updateAllLines() {
     document.querySelectorAll(".arrow").forEach(el => el.remove());
@@ -154,6 +171,7 @@ function updateAllLines() {
 function resetTree() {
     root = null;
     outputDiv.innerHTML = "";
+    outputDiv.style.display = "none";
     treeContainer.innerHTML = "";
     document.getElementById("nodePositionSelect").innerHTML = `<option value="root">Set as Root</option>`;
 }
@@ -272,7 +290,7 @@ async function startTraversal(type) {
         case 'levelorder': await levelorder(root, traversalList); break;
         case 'morris': await morris(root, traversalList); break;
     }
-
+    outputDiv.style.display = "block";
     outputDiv.innerHTML = `
         <div class="traversal-title">${type.charAt(0).toUpperCase() + type.slice(1)} Traversal:</div>
         <div class="traversal-path">${traversalList.join(", ")}</div>
