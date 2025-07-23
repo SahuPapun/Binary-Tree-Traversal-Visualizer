@@ -5,7 +5,6 @@ An **easy-to-use interactive tool** to understand and visualize different types 
 ## 🚀 Features
 
 - 🌱 Manually add nodes to build your own binary tree
-- 🔀 Drag and drop nodes to rearrange layout visually
 - 📍 Choose the parent node and position (left/right) when inserting
 - 🔍 Visualize common traversal algorithms:
   - Inorder (Left → Root → Right)
